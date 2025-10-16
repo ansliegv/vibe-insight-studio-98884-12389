@@ -118,7 +118,7 @@ const MindMap = () => {
       return (
         <div
           key={node.id}
-          className="absolute left-12 top-1/2 transform -translate-y-1/2"
+          className="absolute left-16 top-1/2 transform -translate-y-1/2"
           onMouseEnter={() => setHoveredNode(node.id)}
           onMouseLeave={() => setHoveredNode(null)}
           style={{ width: 'fit-content' }}
@@ -144,7 +144,7 @@ const MindMap = () => {
         <div key={node.id}>
           {/* Secondary node */}
           <div
-            className="absolute left-[280px] w-fit"
+            className="absolute left-[360px] w-fit"
             style={{ top: `${yPosition}px` }}
             onMouseEnter={() => setHoveredNode(node.id)}
             onMouseLeave={() => setHoveredNode(null)}
@@ -165,7 +165,7 @@ const MindMap = () => {
           {/* Connection line from root to secondary */}
           <svg className="absolute left-0 top-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
             <path
-              d={`M 260 300 Q 270 ${yPosition + 20}, 280 ${yPosition + 20}`}
+              d={`M 280 300 Q 320 ${yPosition + 20}, 360 ${yPosition + 20}`}
               stroke={node.color || 'hsl(var(--primary))'}
               strokeWidth="2"
               fill="none"
@@ -177,7 +177,7 @@ const MindMap = () => {
           {isExpanded && node.children?.map((child, childIndex) => (
             <div key={child.id} className="animate-fade-in">
               <div
-                className="absolute left-[500px]"
+                className="absolute left-[680px]"
                 style={{ top: `${yPosition + (childIndex * 35) - 10}px` }}
                 onMouseEnter={() => setHoveredNode(child.id)}
                 onMouseLeave={() => setHoveredNode(null)}
@@ -198,7 +198,7 @@ const MindMap = () => {
               {/* Connection line from secondary to action */}
               <svg className="absolute left-0 top-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
                 <path
-                  d={`M 497 ${yPosition + 20} Q 498 ${yPosition + (childIndex * 35) + 5}, 500 ${yPosition + (childIndex * 35) + 5}`}
+                  d={`M 655 ${yPosition + 20} Q 667 ${yPosition + (childIndex * 35) + 5}, 680 ${yPosition + (childIndex * 35) + 5}`}
                   stroke={child.color || 'hsl(var(--primary))'}
                   strokeWidth="1.5"
                   fill="none"
